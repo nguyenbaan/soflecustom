@@ -8,6 +8,7 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/ext_power.h>
 #include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/mouse.h>
 #include <dt-bindings/zmk/rgb.h>
 
 #define BASE 0
@@ -41,11 +42,11 @@
             //               | GUI | ALT  | CTRL | LOWER|  ENTER |  | SPACE | RAISE| CTRL  | ALT   | GUI  |
 
             bindings = <
-&kp GRAVE         &kp N1  &kp N2            &kp N3              &kp N4          &kp N5                              &kp N6     &kp N7           &kp N8       &kp N9             &kp N0            &none
-&kp ESC           &kp Q   &kp W             &kp F               &kp P           &kp B                               &kp J      &kp L            &kp U        &kp Y              &kp QUESTION      &kp BSPC
-&mt LEFT_GUI ESC  &kp A   &mt LEFT_SHIFT R  &mt LEFT_CONTROL S  &mt LEFT_ALT T  &kp G                               &kp M      &mt RIGHT_ALT N  &mt RCTRL E  &mt RIGHT_SHIFT I  &kp O             &kp RIGHT_GUI
-&kp CAPS          &kp Z   &kp X             &kp C               &kp D           &kp V      &kp C_MUTE    &none      &kp K      &kp H            &kp COMMA    &kp DOT            &kp SINGLE_QUOTE  &kp DEL
-                          &none             &none               &none           &mo LOWER  &kp RET       &kp SPACE  &mo RAISE  &none            &none        &none
+&kp PRINTSCREEN   &kp N1  &kp N2            &kp N3              &kp N4          &kp N5                                      &kp N6                 &kp N7           &kp N8       &kp N9             &kp N0            &kp PAUSE_BREAK
+&kp ESC           &kp Q   &kp W             &kp F               &kp P           &kp B                                       &kp J                  &kp L            &kp U        &kp Y              &kp QUESTION      &kp INS
+&mt LEFT_GUI ESC  &kp A   &mt LEFT_SHIFT R  &mt LEFT_CONTROL S  &mt LEFT_ALT T  &kp G                                       &kp M                  &mt RIGHT_ALT N  &mt RCTRL E  &mt RIGHT_SHIFT I  &kp O             &kp RIGHT_GUI
+&kp CAPS          &kp Z   &kp X             &kp C               &kp D           &kp V            &kp C_MUTE    &none        &kp K                  &kp H            &kp COMMA    &kp DOT            &kp SINGLE_QUOTE  &kp DEL
+                          &none             &none               &none           &lt 1 BACKSPACE  &lt 2 TAB     &lt 3 ENTER  &mt RIGHT_SHIFT SPACE  &none            &none        &none
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
@@ -104,11 +105,11 @@
 
             display-name = "adjust";
             bindings = <
-&bt BT_CLR         &bt BT_SEL 0     &bt BT_SEL 1     &bt BT_SEL 2     &bt BT_SEL 3     &bt BT_SEL 4                               &none  &none  &none  &none  &none  &none
-&ext_power EP_TOG  &rgb_ug RGB_HUD  &rgb_ug RGB_HUI  &rgb_ug RGB_SAD  &rgb_ug RGB_SAI  &rgb_ug RGB_EFF                            &none  &none  &none  &none  &none  &none
-&none              &rgb_ug RGB_BRD  &rgb_ug RGB_BRI  &none            &none            &none                                      &none  &none  &none  &none  &none  &none
-&none              &none            &none            &none            &none            &none            &rgb_ug RGB_TOG    &none  &none  &none  &none  &none  &none  &none
-                                    &none            &none            &none            &none            &none              &none  &none  &none  &none  &none
+&bt BT_CLR         &bt BT_SEL 0     &bt BT_SEL 1     &bt BT_SEL 2     &bt BT_SEL 3     &bt BT_SEL 4                               &none  &none           &none           &none            &none  &none
+&ext_power EP_TOG  &rgb_ug RGB_HUD  &rgb_ug RGB_HUI  &rgb_ug RGB_SAD  &rgb_ug RGB_SAI  &rgb_ug RGB_EFF                            &none  &mkp LCLK       &mmv MOVE_UP    &mkp MB2         &none  &none
+&none              &rgb_ug RGB_BRD  &rgb_ug RGB_BRI  &none            &none            &none                                      &none  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &none  &none
+&none              &none            &none            &none            &none            &none            &rgb_ug RGB_TOG    &none  &none  &none           &none           &none            &none  &none
+                                    &none            &none            &none            &none            &none              &none  &none  &none           &none           &none
             >;
         };
     };
